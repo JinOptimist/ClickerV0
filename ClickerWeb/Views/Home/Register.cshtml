@@ -1,0 +1,17 @@
+﻿@model AuthUserViewModel
+
+<div>
+    <form method="post">
+        <div>
+            @Html.TextBoxFor(x => x.Email)
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+        <div>
+            @Html.TextBoxFor(x => x.Password)
+            @Html.ValidationMessageFor(x => x.Password)
+        </div>
+        <div>
+            <input type="submit" value="Register" />
+        </div>
+    </form>
+</div>
