@@ -6,5 +6,7 @@
         public string CurrentLevelName { get; set; }
         public int Exp { get; set; }
         public int Coins { get; set; }
+
+        public List<LevelDetailViewModel> LevelDetails { get; set; } = new List<LevelDetailViewModel>();
     }
 }

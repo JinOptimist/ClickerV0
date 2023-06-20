@@ -14,6 +14,12 @@ builder.Services
     .AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<WebContext>();
 
+builder.Services.AddCors(option =>
+{
+    option.AddDefaultPolicy(policy => 
+        policy.WithOrigins("http://localhost:3000"));
+});
+
 builder.Services.ConfigureApplicationCookie(option =>
 {
     option.LoginPath = "/Home/Login";
@@ -39,6 +45,8 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseCors();
 
 app.MapControllerRoute(
     name: "default",

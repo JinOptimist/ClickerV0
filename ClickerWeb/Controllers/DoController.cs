@@ -16,19 +16,21 @@ namespace ClickerWeb.Controllers
             _webContext = webContext;
         }
 
-        public IActionResult Learn()
+        public IActionResult Learn(int level)
         {
             var user = _userManager.FindByNameAsync(User.Identity?.Name).Result;
-            user.Exp += user.CurrentLevel.LearningStepSize;
+            var levelDetail = _webContext.LevelRules.Single(x => x.Level == level);
+            user.Exp += levelDetail.LearningStepSize;
             _webContext.SaveChanges();
 
             return RedirectToAction("Index", "Home");
         }
 
-        public IActionResult Work()
+        public IActionResult Work(int level)
         {
             var user = _userManager.FindByNameAsync(User.Identity?.Name).Result;
-            user.Coins += user.Exp * user.CurrentLevel.ExpSalaryRate;
+            var levelDetail = _webContext.LevelRules.Single(x => x.Level == level);
+            user.Coins += user.Exp * levelDetail.ExpSalaryRate;
             _webContext.SaveChanges();
 
             return RedirectToAction("Index", "Home");

@@ -86,10 +86,22 @@ namespace ClickerWeb.Controllers
         {
             var user = _userManager.FindByNameAsync(User.Identity?.Name).Result;
             var viewModel = new IndexViewModel();
+
             viewModel.UserName = user.UserName;
             viewModel.CurrentLevelName = user.CurrentLevel.Name;
             viewModel.Exp = user.Exp;
             viewModel.Coins = user.Coins;
+
+            viewModel.LevelDetails = _webContext
+                .LevelRules
+                .Select(x => new LevelDetailViewModel
+                {
+                    Name = x.Name,
+                    Level = x.Level,
+                    ExpSalaryRate = x.ExpSalaryRate,
+                    LearningStepSize = x.LearningStepSize,
+                })
+                .ToList();
 
             return View(viewModel);
         }

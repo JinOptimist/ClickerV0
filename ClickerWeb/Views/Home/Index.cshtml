@@ -7,10 +7,19 @@
     <div>
         Чем заняться?
     </div>
-    <form action="/do/learn">
-        <input type="submit" value="Учиться" />
-    </form>
-    <form action="/do/work">
-        <input type="submit" value="Работать" />
-    </form>
+    @foreach (var levelDetail in Model.LevelDetails)
+    {
+        <div>
+            @levelDetail.Name options:
+        </div>
+        <div>
+            <a href="/do/learn?Level=@levelDetail.Level">
+                Учиться [+@levelDetail.LearningStepSize]
+            </a>
+        </div>
+        <a href="/do/work?level=@levelDetail.Level">
+            Работать [exp * @levelDetail.ExpSalaryRate]
+        </a>
+    }
+
 </div>
