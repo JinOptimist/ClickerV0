@@ -1,15 +1,13 @@
-using DAL;
-using DAL.Models;
-using Microsoft.AspNetCore.Authentication.Cookies;
+using ClickerWeb.DAL;
+using ClickerWeb.DAL.Models;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-var dalStartup = new Startup();
+var dalStartup = new DalDiRegister();
 dalStartup.RegisterDbContext(builder.Services);
 
 builder.Services

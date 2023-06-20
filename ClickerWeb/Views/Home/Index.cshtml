@@ -1,8 +1,16 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@model IndexViewModel
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div>
+    <div>
+        Привет @Model.UserName. Твой уровень: @Model.CurrentLevelName. Твой опыт: @Model.Exp. Твои сбережения: @Model.Coins
+    </div>
+    <div>
+        Чем заняться?
+    </div>
+    <form action="/do/learn">
+        <input type="submit" value="Учиться" />
+    </form>
+    <form action="/do/work">
+        <input type="submit" value="Работать" />
+    </form>
 </div>

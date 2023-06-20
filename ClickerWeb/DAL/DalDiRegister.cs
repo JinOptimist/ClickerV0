@@ -1,19 +1,18 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DAL
+namespace ClickerWeb.DAL
 {
-    public class Startup
+    public class DalDiRegister
     {
         public void RegisterDbContext(IServiceCollection services)
         {
             var connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=ClickerV0;Trusted_Connection=True;";
-            services.AddDbContext<WebContext>(op => op.UseSqlServer(connectionString));
-        }
-
-        public void ConfigureServices(IServiceCollection services)
-        {
-            RegisterDbContext(services);
+            services
+                .AddDbContext<WebContext>(option =>
+                    option
+                        .UseLazyLoadingProxies(true)
+                        .UseSqlServer(connectionString));
         }
     }
 }

@@ -1,8 +1,8 @@
-﻿using DAL.Models;
+﻿using ClickerWeb.DAL.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace DAL
+namespace ClickerWeb.DAL
 {
     public class WebContext : IdentityDbContext<User>
     {
@@ -19,13 +19,13 @@ namespace DAL
         //    base.OnModelCreating(builder);
         //}
 
-        #region Way to create WebContext for Migration
-        public WebContext() { }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            var connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=ClickerV0;Trusted_Connection=True;";
-            optionsBuilder.UseSqlServer(connectionString);
-        }
-        #endregion
+        //#region Way to create WebContext for Migration
+        //public WebContext() { }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    var connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=ClickerV0;Trusted_Connection=True;";
+        //    optionsBuilder.UseSqlServer(connectionString);
+        //}
+        //#endregion
     }
 }

@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace DAL.Models
+namespace ClickerWeb.DAL.Models
 {
     public class User : IdentityUser
     {
+        public int Exp { get; set; }
+        public int Coins { get; set; }
         public virtual LevelRule? CurrentLevel { get; set; }
     }
 }

@@ -1,6 +1,6 @@
-﻿using ClickerWeb.Models;
-using DAL;
-using DAL.Models;
+﻿using ClickerWeb.DAL;
+using ClickerWeb.DAL.Models;
+using ClickerWeb.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -53,9 +53,6 @@ namespace ClickerWeb.Controllers
 
             await _signInManager.SignInAsync(user, false);
 
-
-
-
             return RedirectToAction("Index", "Home");
         }
 
@@ -88,13 +85,13 @@ namespace ClickerWeb.Controllers
         public IActionResult Index()
         {
             var user = _userManager.FindByNameAsync(User.Identity?.Name).Result;
-            if (user.CurrentLevel == null)
-            {
-                var a = new LevelRule();
-            }
+            var viewModel = new IndexViewModel();
+            viewModel.UserName = user.UserName;
+            viewModel.CurrentLevelName = user.CurrentLevel.Name;
+            viewModel.Exp = user.Exp;
+            viewModel.Coins = user.Coins;
 
-
-            return View();
+            return View(viewModel);
         }
     }
 }

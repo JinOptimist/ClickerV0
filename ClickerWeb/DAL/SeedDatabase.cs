@@ -1,7 +1,6 @@
-﻿using DAL.Models;
-using Microsoft.Extensions.DependencyInjection;
+﻿using ClickerWeb.DAL.Models;
 
-namespace DAL
+namespace ClickerWeb.DAL
 {
     public class SeedDatabase
     {
@@ -16,9 +15,9 @@ namespace DAL
                 {
                     var firstLeveRule = new LevelRule
                     {
-                        Name = "Junior",
+                        Name = "Trainee",
                         Level = 1,
-                        InitialExp = 1,
+                        LearningStepSize = 1,
                         ExpSalaryRate = 2,
                     };
                     webContext.LevelRules.Add(firstLeveRule);
