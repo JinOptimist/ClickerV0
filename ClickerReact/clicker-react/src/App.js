@@ -10,7 +10,10 @@ function App() {
   return (
     <div className="dev-clicker">
       <div>
-        Привет {userName}. Твой уровень: {currentLevelName}. Твой опыт: {exp}. Твои сбережения: {coins}
+        Привет <span className='doc'>1.a</span> {userName}.
+        Твой уровень: <span className='doc'>1.b</span> {currentLevelName}.
+        Твой опыт: <span className='doc'>1.c</span> {exp}.
+        Твои сбережения: <span className='doc'>1.d</span> {coins}
       </div>
       <div style={{ display: 'flex' }}>
         <SeniorityLevel seniority='1'></SeniorityLevel>

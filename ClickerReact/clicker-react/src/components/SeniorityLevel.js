@@ -20,16 +20,16 @@ function SeniorityLevel({ seniority }) {
   return (
     <div className='level'>
       <div>
-        {data.name}[{seniority}]
+        <span className='doc'>2.a</span> {data.name}[{seniority}]
       </div>
       <div>
-        <img src='https://cdn-icons-png.flaticon.com/512/566/566985.png'/>
+        <span className='doc'>2.b</span> <img src='https://cdn-icons-png.flaticon.com/512/566/566985.png' />
       </div>
       <div>
-        <Button variant="contained">Learn [Exp: +{data.learningStepSize}]</Button>
+        <span className='doc'>2.c</span> <Button variant="contained">Learn</Button>[Exp: +{data.learningStepSize}]
       </div>
       <div>
-        <Button variant="contained">Work [Coins: +Exp*{data.expSalaryRate}]</Button>
+        <span className='doc'>2.d</span> <Button variant="contained">Work</Button>[Coins: +Exp*{data.expSalaryRate}]
       </div>
     </div>
   );

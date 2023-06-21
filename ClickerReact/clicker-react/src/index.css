@@ -5,3 +5,7 @@
   flex-direction: column;
   height: 100vh;
 }
+
+.doc{
+  background-color: aqua;
+}
