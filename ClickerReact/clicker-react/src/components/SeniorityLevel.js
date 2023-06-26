@@ -15,16 +15,16 @@ function SeniorityLevel({ seniority }) {
         setData(data)
       })
   })
-  
+
   // Example of level icons
   // https://cdn.w600.comps.canstockphoto.com/software-developer-levels-from-junior-drawing_csp89007397.jpg
   return (
     <div className='level'>
       <div>
-        {data.name}[{seniority}]
+        <span className='doc'>2.a</span> {data.name}[{seniority}]
       </div>
       <div>
-        <img src='https://cdn-icons-png.flaticon.com/512/566/566985.png'/>
+        <span className='doc'>2.b</span> <img src='https://cdn-icons-png.flaticon.com/512/566/566985.png' />
       </div>
       <div>
         <Button variant="contained">Учиться</Button>
