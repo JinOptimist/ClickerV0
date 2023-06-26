@@ -15,6 +15,7 @@ function SeniorityLevel({ seniority }) {
         setData(data)
       })
   })
+  
   // Example of level icons
   // https://cdn.w600.comps.canstockphoto.com/software-developer-levels-from-junior-drawing_csp89007397.jpg
   return (
@@ -26,10 +27,12 @@ function SeniorityLevel({ seniority }) {
         <img src='https://cdn-icons-png.flaticon.com/512/566/566985.png'/>
       </div>
       <div>
-        <Button variant="contained">Learn [Exp: +{data.learningStepSize}]</Button>
+        <Button variant="contained">Учиться</Button>
+        [Exp: +{data.learningStepSize}]
       </div>
       <div>
-        <Button variant="contained">Work [Coins: +Exp*{data.expSalaryRate}]</Button>
+        <Button variant="contained">Работать</Button>
+        [Coins: +Exp*{data.expSalaryRate}]
       </div>
     </div>
   );
