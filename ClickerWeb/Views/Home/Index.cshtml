@@ -1,32 +1,54 @@
 ﻿@model IndexViewModel
 
-<div>
-    <img src="https://cdn.w600.comps.canstockphoto.com/software-developer-levels-from-junior-drawing_csp89007397.jpg" />
-    <div>
-        Привет @Model.UserName. Твой уровень: @Model.CurrentLevelName. Твой опыт: @Model.Exp. Твои сбережения: @Model.Coins
+<div class="user-info">
+    <div class="name">
+        Hello, @Model.UserName!
     </div>
-    <div>
-        Чем заняться?
-    </div>
-    <div class="options">
-        @foreach (var levelDetail in Model.LevelDetails)
-        {
-            <div class="level">
-                <div>
-                    @levelDetail.Name:
-                </div>
-                <div>
-                    <img src='https://cdn-icons-png.flaticon.com/512/566/566985.png' />
-                </div>
-                <div>
-                    <a href="/do/learn?Level=@levelDetail.Level">
-                        Учиться [+@levelDetail.LearningStepSize]
-                    </a>
-                </div>
-                <a href="/do/work?level=@levelDetail.Level">
-                    Работать [exp * @levelDetail.ExpSalaryRate]
-                </a>
-            </div>
-        }
+    <div class="attribute-block">
+        <div class="attribute">
+            <div class="attribute-name">Level</div>
+            <div>@Model.CurrentLevelName</div>
+        </div>
+        <div class="attribute">
+            <div class="attribute-name">Experience</div>
+            <div><img src="~/images/Exp.png" />@Model.Exp</div>
+        </div>
+        <div class="attribute">
+            <div class="attribute-name">Coins</div>
+            <div><img src="~/images/Coin.png" />@Model.Coins</div>
+        </div>
     </div>
 </div>
+<div class="options">
+    @foreach (var levelDetail in Model.LevelDetails)
+    {
+        <div class="level">
+            <div class="level-name-block">
+                <span class="level-name">
+                    @levelDetail.Name
+                </span>
+            </div>
+            <div class="level-legend">
+                <div class="level-image-block">
+                    <img src='/images/L0.png' />
+                </div>
+                <div class="level-legend-text">
+                    <div>Learn: <span class="sign">+</span><img src="/images/Exp.png" />@levelDetail.LearningStepSize</div>
+                    <div>Work: <span class="sign">+</span><img src="/images/Coin.png" />@(levelDetail.ExpSalaryRate * Model.Exp)</div>
+                </div>
+            </div>
+            <div class="action-block">
+                <a class="button learn" href="/do/learn?Level=@levelDetail.Level">
+                    Learn
+                </a>
+                <a class="button work" href="/do/work?level=@levelDetail.Level">
+                    Work
+                </a>
+            </div>
+        </div>
+    }
+</div>
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/index.css" />
+}
