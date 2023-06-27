@@ -17,7 +17,9 @@ namespace ClickerWeb.DAL
                         Name = "Trainee",
                         Level = 1,
                         LearningStepSize = 1,
-                        ExpSalaryRate = 2,
+                        ExpSalaryRate = 1,
+                        LevelImageUrl = "/images/L0.png",
+                        MinExp = 0,
                     };
                     webContext.LevelRules.Add(firstLeveRule);
                     webContext.SaveChanges();
@@ -30,7 +32,9 @@ namespace ClickerWeb.DAL
                         Name = "Junior",
                         Level = 2,
                         LearningStepSize = 2,
-                        ExpSalaryRate = 3,
+                        ExpSalaryRate = 2,
+                        LevelImageUrl = "/images/L1.png",
+                        MinExp = 10,
                     };
                     webContext.LevelRules.Add(firstLeveRule);
                     webContext.SaveChanges();
@@ -43,7 +47,9 @@ namespace ClickerWeb.DAL
                         Name = "Middle",
                         Level = 3,
                         LearningStepSize = 4,
-                        ExpSalaryRate = 5,
+                        ExpSalaryRate = 4,
+                        LevelImageUrl = "/images/L2.png",
+                        MinExp = 40,
                     };
                     webContext.LevelRules.Add(firstLeveRule);
                     webContext.SaveChanges();

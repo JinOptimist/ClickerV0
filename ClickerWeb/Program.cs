@@ -22,7 +22,7 @@ builder.Services.AddCors(option =>
 
 builder.Services.ConfigureApplicationCookie(option =>
 {
-    option.LoginPath = "/Home/Login";
+    option.LoginPath = "/Account/Login";
 });
 
 var app = builder.Build();

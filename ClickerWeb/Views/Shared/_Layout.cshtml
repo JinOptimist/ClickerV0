@@ -11,23 +11,29 @@
     @RenderSection("Styles", false)
 </head>
 <body>
-   <div class="content-width">
+    <div class="content-width">
         <header>
             <div class="link-block">
                 <a class="button logo" href="/Home/Index">.NET</a>
                 <a class="button" href="/Home/Index">Home</a>
             </div>
             <div class="link-block auth-block">
-                <a class="button auth" asp-area="" asp-controller="Home" asp-action="Register">Register</a>
-                <a class="button auth" asp-area="" asp-controller="Home" asp-action="login">Log in</a>
-                <a class="button auth" asp-area="" asp-controller="Home" asp-action="Logout">Log out</a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a class="button auth" href="/Account/Logout">Log out</a>
+                }
+                else
+                {
+                    <a class="button auth" href="/Account/Register">Register</a>
+                    <a class="button auth" href="/Account/Login">Log in</a>
+                }
             </div>
         </header>
         <div class="content">
             @RenderBody()
         </div>
 
-   </div>
+    </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
