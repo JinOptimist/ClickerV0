@@ -1,18 +1,52 @@
 ﻿@model AuthUserViewModel
 
-<div>
-    <h1>Register</h1>
-    <form method="post">
+<div class="auth-main-block">
+    <div class="auth-info">
         <div>
-            @Html.TextBoxFor(x => x.Email)
-            @Html.ValidationMessageFor(x => x.Email)
+            <div class="title">
+                Sign up to platform
+            </div>
+            <div class="additional-info">
+                Enter your credentials to access your account
+            </div>
+
+            <form method="post">
+                <div class="field-name">
+                    Email
+                </div>
+                <div class="field">
+                    @Html.TextBoxFor(x => x.Email, new {
+                        placeholder = "Please enter your email"
+                    })
+                </div>
+                <div>
+                    @Html.ValidationMessageFor(x => x.Email)
+                </div>
+                <div class="field-name">
+                    Password
+                </div>
+                <div>
+                    @Html.TextBoxFor(x => x.Password, new {
+                        @type = "password",
+                        placeholder = "Please enter your password"
+                    })
+                </div>
+                <div>
+                    @Html.ValidationMessageFor(x => x.Password)
+                </div>
+                <div>
+                    <input type="submit" class="button" value="Create account" />
+                </div>
+            </form>
+            <div class="login-register-link">
+                Already a member? 
+                <a href="/Account/Login">Sign in</a>
+            </div>
         </div>
-        <div>
-            @Html.TextBoxFor(x => x.Password)
-            @Html.ValidationMessageFor(x => x.Password)
-        </div>
-        <div>
-            <input type="submit" value="Register" />
-        </div>
-    </form>
+    </div>
+    <div class="auth-bg"></div>
 </div>
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/auth.css" />
+}
