@@ -6,5 +6,6 @@
         public int Level { get; set; }
         public int LearningStepSize { get; set; }
         public int ExpSalaryRate { get; set; }
+        public string ImageUrl { get; set; }
     }
 }

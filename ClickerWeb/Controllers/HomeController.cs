@@ -28,7 +28,6 @@ namespace ClickerWeb.Controllers
             viewModel.Exp = user.Exp;
             viewModel.Coins = user.Coins;
             viewModel.CurrentLevelName = user.CurrentLevel.Name;
-            viewModel.ImageUrl = user.CurrentLevel.LevelImageUrl;
 
             viewModel.LevelDetails = _webContext
                 .LevelRules
@@ -39,6 +38,7 @@ namespace ClickerWeb.Controllers
                     Level = x.Level,
                     ExpSalaryRate = x.ExpSalaryRate,
                     LearningStepSize = x.LearningStepSize,
+                    ImageUrl = x.LevelImageUrl
                 })
                 .ToList();
 
