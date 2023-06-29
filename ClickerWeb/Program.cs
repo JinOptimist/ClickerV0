@@ -1,3 +1,4 @@
+using ClickerWeb.Auth;
 using ClickerWeb.DAL;
 using ClickerWeb.DAL.Models;
 using Microsoft.AspNetCore.Identity;
@@ -14,15 +15,23 @@ builder.Services
     .AddIdentity<User, IdentityRole>()
     .AddEntityFrameworkStores<WebContext>();
 
-builder.Services.AddCors(option =>
-{
-    option.AddDefaultPolicy(policy => 
-        policy.WithOrigins("http://localhost:3000"));
-});
+//builder.Services
+//    .AddAuthentication(options =>
+//    {
+//        options.DefaultAuthenticateScheme = "SmileScheme";
+//        options.DefaultChallengeScheme = "SmileScheme";
+//    })
+//    .AddScheme<SmileAuthenticationSchemeOptions, SmileAuthenticationHandler>("SmileScheme", null);
 
 builder.Services.ConfigureApplicationCookie(option =>
 {
     option.LoginPath = "/Account/Login";
+});
+
+builder.Services.AddCors(option =>
+{
+    option.AddDefaultPolicy(policy =>
+        policy.WithOrigins("http://localhost:3000"));
 });
 
 var app = builder.Build();

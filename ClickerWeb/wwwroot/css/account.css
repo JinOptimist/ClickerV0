@@ -1,0 +1,13 @@
+.account-layout {
+    display: flex;
+    width: 100%;
+}
+
+.account-content-width {
+    flex: 1;
+}
+.account-nice-bg{
+    flex: 1;
+    height: 100vh;
+    background-image: url('../images/account-bg.png');
+}
