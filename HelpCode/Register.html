@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ClickerWeb</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/site.css" />
+	<link rel="stylesheet" href="css/auth.css" />
+</head>
+<body>
+    <div class="content-width">
+        <header>
+            <div class="link-block">
+                <a class="button logo" href="#">.NET</a>
+                <a class="button" href="#">Home</a>
+            </div>
+            <div class="link-block auth-block">
+				<a class="button auth" href="#">Log out</a>
+                <a class="button auth" href="#">Register</a>
+				<a class="button auth" href="#">Log in</a>
+            </div>
+        </header>
+        <div class="content">
+            <div class="auth-main-block">
+				<div class="auth-info">
+					<div>
+						<div class="title">
+							Sign up to platform
+						</div>
+						<div class="additional-info">&nbsp;</div>
+
+						<form method="post">
+							<div class="field-name">
+								Email
+							</div>
+							<div class="field">
+								<input name="email" placeholder = "Please enter your email" />
+							</div>
+							<div>
+								<span class="field-validation-error" data-valmsg-for="Email" data-valmsg-replace="true">Incorrect Email or Password</span>
+							</div>
+							<div class="field-name">
+								Password
+							</div>
+							<div>
+								<input type = "password" placeholder = "Please enter your password" />
+							</div>
+							<div></div>
+							<div>
+								<input type="submit" class="button" value="Create account" />
+							</div>
+						</form>
+						<div class="login-register-link">
+							Already a member? 
+							<a href="#">Sign in</a>
+						</div>
+					</div>
+				</div>
+				<div class="auth-bg"></div>
+			</div>
+        </div>
+    </div>
+</body>
+</html>

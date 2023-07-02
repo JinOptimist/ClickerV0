@@ -4,9 +4,11 @@
     <div class="auth-info">
         <div>
             <div class="title">
-                Sign up to platform
+                Sign in to platform
             </div>
-            <div class="additional-info">&nbsp;</div>
+            <div class="additional-info">
+                Enter your credentials to access your account
+            </div>
 
             <form method="post">
                 <div class="field-name">
@@ -33,12 +35,12 @@
                     @Html.ValidationMessageFor(x => x.Password)
                 </div>
                 <div>
-                    <input type="submit" class="button" value="Create account" />
+                    <input type="submit" class="button" value="Sign in" />
                 </div>
             </form>
             <div class="login-register-link">
-                Already a member? 
-                <a href="/Account/Login">Sign in</a>
+                Not a member? 
+                <a href="/Account/Register">Sign up now</a>
             </div>
         </div>
     </div>
