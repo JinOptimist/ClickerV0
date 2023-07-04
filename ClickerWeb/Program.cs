@@ -1,5 +1,6 @@
 using ClickerWeb.DAL;
 using ClickerWeb.DAL.Models;
+using ClickerWeb.MiddlewareServices;
 using Microsoft.AspNetCore.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,7 +18,9 @@ builder.Services
 builder.Services.AddCors(option =>
 {
     option.AddDefaultPolicy(policy => 
-        policy.WithOrigins("http://localhost:3000"));
+        policy
+            .WithOrigins("http://localhost:3000")
+            .AllowAnyHeader());
 });
 
 builder.Services.ConfigureApplicationCookie(option =>
@@ -47,6 +50,8 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseCors();
+
+app.UseMiddleware<LoginFromTokenMiddleware>();
 
 app.MapControllerRoute(
     name: "default",

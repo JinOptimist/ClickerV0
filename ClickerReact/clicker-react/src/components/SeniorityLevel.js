@@ -9,12 +9,12 @@ function SeniorityLevel({ seniority }) {
 
   const [data, setData] = useState({})
 
-  useEffect(() => {
-    getLevelDetails(seniority)
-      .then((data) => {
-        setData(data)
-      })
-  })
+  // useEffect(() => {
+  //   getLevelDetails(seniority)
+  //     .then((data) => {
+  //       setData(data)
+  //     })
+  // }, [])
 
   // Example of level icons
   // https://cdn.w600.comps.canstockphoto.com/software-developer-levels-from-junior-drawing_csp89007397.jpg

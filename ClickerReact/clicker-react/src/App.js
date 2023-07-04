@@ -1,29 +1,56 @@
 import './App.css';
-import SeniorityLevel from './components/SeniorityLevel';
+import axios from 'axios'
+import {
+  Route,
+  BrowserRouter,
+  Routes,
+} from "react-router-dom"
+import React from 'react'
+import Help from './components/Help';
+import Clicker from './components/Clicker';
 
 function App() {
-  const userName = 'Smile';
-  const currentLevelName = 'Junior'
-  const exp = 10
-  const coins = 50
+  // const router = createBrowserRouter([
+  //   {
+  //     path: "/",
+  //     element: <Clicker></Clicker>,
+  //   },
+  //   {
+  //     path: "/Help/:smile",
+  //     element: <Help></Help>,
+  //   },
+  // ]);
+
+  axios.interceptors.request.use((config) => {
+    config.headers.Authorization = 'smile'
+    return config;
+  });
 
   return (
-    <div className="dev-clicker">
-      <div>
-        Привет <span className='doc'>1.a</span> {userName}.
-        Твой уровень: <span className='doc'>1.b</span> {currentLevelName}.
-        Твой опыт: <span className='doc'>1.c</span> {exp}.
-        Твои сбережения: <span className='doc'>1.d</span> {coins}
-      </div>
-      <div style={{ display: 'flex' }}>
-        <SeniorityLevel seniority='1'></SeniorityLevel>
-        <SeniorityLevel seniority='2'></SeniorityLevel>
-        <SeniorityLevel seniority='3'></SeniorityLevel>
-      </div>
-      <div>
-        footer
-      </div>
-    </div>
+    <React.StrictMode>
+      <nav>
+        <ul>
+          <li>
+            <a href={`/`}>Home</a>
+          </li>
+          <li>
+            <a href={`/Help`}>Help null</a>
+          </li>
+          <li>
+            <a href={`/Help/1`}>Help 1</a>
+          </li>
+        </ul>
+      </nav>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <Route path="/" element={<Clicker />} />
+            <Route path="/Help/:smile?" element={<Help />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+
+    </React.StrictMode>
   );
 }
 
