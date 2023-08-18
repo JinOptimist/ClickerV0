@@ -14,11 +14,6 @@ namespace ClickerWeb.DAL
             //Database.EnsureCreated();
         }
 
-        //protected override void OnModelCreating(ModelBuilder builder)
-        //{
-        //    base.OnModelCreating(builder);
-        //}
-
         //#region Way to create WebContext for Migration
         //public WebContext() { }
         //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

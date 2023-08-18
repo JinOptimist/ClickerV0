@@ -1,0 +1,23 @@
+.auth-block{
+    display: flex;
+}
+
+.username{
+    padding: 12px 24px;
+    background: rgba(255, 255, 255, 0.10);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.60);
+    color: #fff;
+
+}
+
+.fields{
+    width: 50%;
+}
+
+.image{
+    background-image: url('../images/Bg-Auth.png');
+    width: 50%;
+    height: 50vh;
+    border-radius: 20px;
+}
