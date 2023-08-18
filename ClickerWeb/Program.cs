@@ -1,14 +1,17 @@
 using ClickerWeb.DAL;
 using ClickerWeb.DAL.Models;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
-
-var dalStartup = new DalDiRegister();
-dalStartup.RegisterDbContext(builder.Services);
+var connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=ClickerV0;Trusted_Connection=True;";
+builder.Services
+    .AddDbContext<WebContext>(option =>
+        option
+            .UseLazyLoadingProxies(true)
+            .UseSqlServer(connectionString));
 
 builder.Services
     .AddIdentity<User, IdentityRole>()
@@ -24,6 +27,8 @@ builder.Services.ConfigureApplicationCookie(option =>
 {
     option.LoginPath = "/Account/Login";
 });
+
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
