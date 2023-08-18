@@ -61,6 +61,8 @@ namespace ClickerWeb.Controllers
                 return View(authUserView);
             }
 
+            await _signInManager.SignInAsync(user, false);
+
             return RedirectToAction("Index", "Home");
         }
 
