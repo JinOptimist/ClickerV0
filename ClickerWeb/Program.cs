@@ -1,7 +1,14 @@
+using ClickerWeb.DAL;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+var connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ClickerV7;Integrated Security=True";
+builder.Services.AddDbContext<WebContext>(option => 
+    option.UseSqlServer(connectionString));
 
 var app = builder.Build();
 
