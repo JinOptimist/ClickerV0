@@ -1,4 +1,6 @@
 using ClickerWeb.DAL;
+using ClickerWeb.DAL.Models;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,10 @@ builder.Services.AddControllersWithViews();
 var connectionString = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=ClickerV7;Integrated Security=True";
 builder.Services.AddDbContext<WebContext>(option => 
     option.UseSqlServer(connectionString));
+
+builder.Services
+    .AddIdentity<User, IdentityRole>()
+    .AddEntityFrameworkStores<WebContext>();
 
 var app = builder.Build();
 
