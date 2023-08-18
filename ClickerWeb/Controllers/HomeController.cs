@@ -1,5 +1,7 @@
 ﻿using ClickerWeb.DAL;
 using ClickerWeb.DAL.Models;
+using ClickerWeb.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,10 +18,17 @@ namespace ClickerWeb.Controllers
             _userManager = userManager;
         }
 
+        [Authorize]
         public IActionResult Index()
         {
-            var userCount = _webContext.Users.Count();
-            return View(userCount);
+            var user = _userManager.FindByNameAsync(User.Identity?.Name).Result;
+            var viewModel = new IndexViewModel();
+
+            viewModel.UserName = user.UserName;
+            viewModel.Exp = user.Exp;
+            viewModel.Coins = user.Coins;
+
+            return View(viewModel);
         }
     }
 }
